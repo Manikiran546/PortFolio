@@ -1,474 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manikiran Gutthula | Data Scientist</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manikiran Gutthula | Data Scientist</title>
 
-        :root {
-            --primary-color: #6C63FF;
-            --secondary-color: #4A44C6;
-            --accent-color: #FF6584;
-            --dark-color: #2A2D3E;
-            --light-color: #F8F9FA;
-            --text-color: #333;
-            --text-light: #777;
-            --transition: all 0.3s ease;
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
+    :root {
+      --primary-color: #6c63ff;
+      --secondary-color: #4a44c6;
+      --accent-color: #ff6584;
+      --dark-color: #2a2d3e;
+      --light-color: #f8f9fa;
+      --text-color: #333;
+      --text-light: #555;
+      --transition: all 0.3s ease;
+    }
 
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--light-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
 
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--dark-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      transition: var(--transition);
+    }
 
-        .logo span {
-            color: var(--primary-color);
-        }
+    .logo {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--dark-color);
+      text-decoration: none;
+    }
 
-        .navbar {
-            display: flex;
-            gap: 35px;
-        }
+    .logo span {
+      color: var(--primary-color);
+    }
 
-        .navbar a {
-            font-size: 18px;
-            color: var(--dark-color);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: var(--transition);
-        }
+    nav.navbar {
+      display: flex;
+      gap: 1.8rem;
+    }
 
-        .navbar a:hover, .navbar a.active {
-            color: var(--primary-color);
-        }
+    .navbar a {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+    }
 
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            left: 0;
-            bottom: -5px;
-            transition: var(--transition);
-        }
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--primary-color);
+    }
 
-        .navbar a:hover::after, .navbar a.active::after {
-            width: 100%;
-        }
+    .navbar a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: var(--primary-color);
+      transition: var(--transition);
+    }
 
-        #menu-icon {
-            font-size: 28px;
-            color: var(--dark-color);
-            cursor: pointer;
-            display: none;
-        }
+    .navbar a:hover::after,
+    .navbar a.active::after {
+      width: 100%;
+    }
 
-        /* Home Section */
-        .home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            position: relative;
-            overflow: hidden;
-        }
+    #menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
 
-        .home-content {
-            max-width: 800px;
-            z-index: 2;
-            width: 100%;
-        }
+    /* HOME SECTION */
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 6rem 8% 3rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      position: relative;
+    }
 
-        .home-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
+    .home-content {
+      flex: 1 1 500px;
+      max-width: 600px;
+    }
 
-        .home-content h1 span {
-            color: var(--primary-color);
-        }
+    .home-content h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      color: var(--dark-color);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
 
-        .home-content h2 {
-            font-size: 2.2rem;
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
+    .home-content h1 span {
+      color: var(--primary-color);
+    }
 
-        .home-content p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            margin-bottom: 35px;
-            color: var(--text-light);
-            max-width: 90%;
-        }
+    .text-animate h3 {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--secondary-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
 
-        .btn-box {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
+    .home-content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
 
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 160px;
-            height: 55px;
-            background: var(--primary-color);
-            color: white;
-            font-size: 18px;
-            font-weight: 500;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-        }
+    .btn-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
-        }
+    .btn {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+    }
 
-        .btn:nth-child(2) {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
+    .btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+    }
 
-        .btn:nth-child(2):hover {
-            background: var(--primary-color);
-            color: white;
-        }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
 
-        .home-sci {
-            display: flex;
-            gap: 20px;
-        }
+    .btn-outline:hover {
+      background: var(--primary-color);
+      color: white;
+    }
 
-        .home-sci a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 45px;
-            height: 45px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            font-size: 20px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
+    .home-sci {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
 
-        .home-sci a:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
+    .home-sci a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: white;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
 
-        /* Background Animation */
-        .bg-animation {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 45%;
-            height: 100%;
-            overflow: hidden;
-        }
+    .home-sci a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-5px);
+    }
 
-        .bg-animation div {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(108, 99, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
+    /* Background decorative bubbles */
+    .bg-animation div {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(108, 99, 255, 0.12);
+      animation: float 6s ease-in-out infinite;
+    }
 
-        .bg-animation div:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 15%;
-            right: 15%;
-            animation-delay: 0s;
-        }
+    .bg-animation div:nth-child(1) {
+      width: 250px;
+      height: 250px;
+      top: 10%;
+      right: 15%;
+      animation-delay: 0s;
+    }
 
-        .bg-animation div:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 25%;
-            right: 25%;
-            animation-delay: 1.5s;
-        }
+    .bg-animation div:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 50%;
+      right: 10%;
+      animation-delay: 2s;
+    }
 
-        .bg-animation div:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            top: 60%;
-            right: 20%;
-            animation-delay: 3s;
-        }
+    .bg-animation div:nth-child(3) {
+      width: 180px;
+      height: 180px;
+      bottom: 10%;
+      right: 20%;
+      animation-delay: 4s;
+    }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .home-content h1 {
-                font-size: 3rem;
-            }
-            
-            .home-content h2 {
-                font-size: 1.8rem;
-            }
-            
-            .home-content p {
-                font-size: 1.1rem;
-            }
-        }
+    /* MOBILE MENU */
+    @media (max-width: 900px) {
+      header {
+        padding: 1rem 5%;
+      }
 
-        @media (max-width: 992px) {
-            header {
-                padding: 20px 5%;
-            }
-            
-            .home {
-                padding: 0 5%;
-            }
-            
-            .home-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .home-content h2 {
-                font-size: 1.6rem;
-            }
-            
-            .home-content p {
-                font-size: 1rem;
-                max-width: 100%;
-            }
-            
-            .bg-animation {
-                width: 50%;
-            }
-        }
+      #menu-icon {
+        display: block;
+      }
 
-        @media (max-width: 768px) {
-            #menu-icon {
-                display: block;
-            }
-            
-            .navbar {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 1rem 5%;
-                background: white;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                display: none;
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .navbar.active {
-                display: flex;
-            }
-            
-            .home-content {
-                text-align: center;
-            }
-            
-            .home-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .home-content h2 {
-                font-size: 1.4rem;
-            }
-            
-            .btn-box {
-                justify-content: center;
-            }
-            
-            .home-sci {
-                justify-content: center;
-            }
-            
-            .bg-animation {
-                display: none;
-            }
-        }
+      .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
 
-        @media (max-width: 576px) {
-            .home-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .home-content h2 {
-                font-size: 1.2rem;
-            }
-            
-            .home-content p {
-                font-size: 0.95rem;
-            }
-            
-            .btn-box {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 180px;
-            }
-        }
+      .navbar.active {
+        display: flex;
+      }
 
-        /* Large screen optimizations */
-        @media (min-width: 1400px) {
-            .home-content {
-                max-width: 900px;
-            }
-            
-            .home-content h1 {
-                font-size: 4rem;
-            }
-            
-            .home-content h2 {
-                font-size: 2.5rem;
-            }
-            
-            .home-content p {
-                font-size: 1.3rem;
-            }
-            
-            .btn {
-                width: 180px;
-                height: 60px;
-                font-size: 20px;
-            }
-        }
-    </style>
+      .navbar a {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 7rem 5% 3rem;
+      }
+
+      .home-content {
+        max-width: 100%;
+      }
+
+      .home-sci {
+        justify-content: center;
+      }
+
+      .bg-animation {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .btn-box {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn, .btn-outline {
+        width: 80%;
+        text-align: center;
+      }
+      .home-content p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo">Mani<span>Kiran.</span></a>
-        
-        <nav class="navbar">
-            <a href="Homepage.html" class="active">Home</a>
-            <a href="AboutPage.html">About</a>
-            <a href="Education.html">Education</a>
-            <a href="Skills.html">Skills</a>
-            <a href="Contacts.html">Contact</a>
-        </nav>
-        
-        <div id="menu-icon">
-            <i class="fas fa-bars"></i>
-        </div>
-    </header>
+  <header>
+    <a href="#" class="logo">Mani<span>Kiran.</span></a>
 
-    <!-- Home Section -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h1>Hi, I'm <span>Manikiran Gutthula</span></h1>
-            <h2>Data Scientist</h2>
-            <p>As a dedicated Computer Science student with a robust foundation in programming, data structures, and algorithms, I am passionate about applying my skills to real-world challenges. With a strong drive to innovate, I am eager to collaborate on impactful projects, leverage cutting-edge technologies, and gain valuable insights from experienced professionals. My goal is to continuously grow, adapt, and contribute meaningfully within a dynamic team, making a lasting impact on the tech industry.</p>
-            
-            <div class="btn-box">
-                <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Hire Me</a>
-                <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Let's Talk</a>
-            </div>
-            
-            <div class="home-sci">
-                <a href="https://www.linkedin.com/in/mani-kiran-734240307/"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/Manikiran546"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/mr_manikiran_"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        
-        <div class="bg-animation">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </section>
+    <nav class="navbar">
+      <a href="Homepage.html" class="active">Home</a>
+      <a href="AboutPage.html">About</a>
+      <a href="Education.html">Education</a>
+      <a href="Skills.html">Skills</a>
+      <a href="Contacts.html">Contact</a>
+    </nav>
 
-    <script>
-        // Toggle mobile menu
-        document.getElementById('menu-icon').addEventListener('click', function() {
-            document.querySelector('.navbar').classList.toggle('active');
-        });
+    <div id="menu-icon"><i class="fas fa-bars"></i></div>
+  </header>
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.navbar a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.navbar').classList.remove('active');
-            });
-        });
+  <section class="home">
+    <div class="home-content">
+      <h1>Hi, I'm <span>Manikiran Gutthula</span></h1>
+      <div class="text-animate"><h3>Data Scientist</h3></div>
+      <p>
+        As a dedicated Computer Science student with a robust foundation in programming, data structures, and algorithms,
+        I am passionate about applying my skills to real-world challenges. With a strong drive to innovate, I am eager to
+        collaborate on impactful projects and contribute meaningfully within a dynamic team.
+      </p>
+      <div class="btn-box">
+        <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Hire Me</a>
+        <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn btn-outline">Let's Talk</a>
+      </div>
+      <div class="home-sci">
+        <a href="https://www.linkedin.com/in/mani-kiran-734240307/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Manikiran546"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/mr_manikiran_"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
 
-        // Header background change on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
+    <div class="bg-animation">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <script>
+    const menu = document.getElementById("menu-icon");
+    const navbar = document.querySelector(".navbar");
+    menu.addEventListener("click", () => navbar.classList.toggle("active"));
+  </script>
 </body>
 </html>
