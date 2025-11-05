@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Manikiran Gutthula</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #4A44C6;
+            --accent-color: #FF6584;
+            --dark-color: #2A2D3E;
+            --light-color: #F8F9FA;
+            --text-color: #333;
+            --text-light: #777;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--dark-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .navbar {
+            display: flex;
+            gap: 35px;
+        }
+
+        .navbar a {
+            font-size: 18px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .navbar a:hover, .navbar a.active {
+            color: var(--primary-color);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .navbar a:hover::after, .navbar a.active::after {
+            width: 100%;
+        }
+
+        #menu-icon {
+            font-size: 28px;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 10% 50px;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .contact-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .contact-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-header h1 span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+
+        .contact-details {
+            flex: 1;
+            min-width: 300px;
+            padding-left: 40px;
+            border-left: 1px solid #f0f0f0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .info-item:hover {
+            background-color: rgba(108, 99, 255, 0.05);
+            transform: translateX(10px);
+        }
+
+        .info-icon {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: var(--transition);
+            font-size: 22px;
+        }
+
+        .info-item:hover .info-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .info-details h3 {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-details p {
+            font-size: 20px;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .social-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .social-section h3 {
+            font-size: 20px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+
+        .contact-details h2 {
+            font-size: 28px;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-details h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 3px;
+        }
+
+        .contact-details p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05) 0%, rgba(74, 68, 198, 0.05) 100%);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 30px;
+        }
+
+        .highlight-box h4 {
+            font-size: 18px;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .highlight-box p {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .availability i {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .availability p {
+            font-size: 16px;
+            color: #2E7D32;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .bg-animation div {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.08);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .bg-animation div:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .bg-animation div:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .bg-animation div:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(180deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            header {
+                padding: 20px 5%;
+            }
+            
+            .contact {
+                padding: 100px 5% 50px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-content {
+                gap: 40px;
+            }
+            
+            .contact-info, .contact-details {
+                padding: 0;
+            }
+            
+            .contact-details {
+                border-left: none;
+                border-top: 1px solid #f0f0f0;
+                padding-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+            
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 5%;
+                background: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .navbar.active {
+                display: flex;
+            }
+            
+            .contact-header {
+                padding: 40px 30px;
+            }
+            
+            .contact-header h1 {
+                font-size: 36px;
+            }
+            
+            .contact-content {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-header {
+                padding: 30px 20px;
+            }
+            
+            .contact-header h1 {
+                font-size: 32px;
+            }
+            
+            .contact-content {
+                padding: 30px 20px;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 15px;
+            }
+            
+            .info-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="Homepage.html" class="logo">Mani<span>Kiran.</span></a>
+        
+        <nav class="navbar">
+            <a href="Homepage.html">Home</a>
+            <a href="AboutPage.html">About</a>
+            <a href="Education.html">Education</a>
+            <a href="Skills.html">Skills</a>
+            <a href="Contacts.html" class="active">Contact</a>
+        </nav>
+        
+        <div id="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1>Get In <span>Touch</span></h1>
+                <p>Feel free to reach out for any inquiries or opportunities. I'm always open to discussing new projects and ideas.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item" onclick="copyToClipboard('Manikiran Gutthula')">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Full Name</h3>
+                            <p>Manikiran Gutthula</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item" onclick="copyToClipboard('manikiran546@gmail.com')">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Email Address</h3>
+                            <p>manikiran546@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item" onclick="copyToClipboard('+91 9398748440')">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Mobile Number</h3>
+                            <p>+91 9398748440</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Location</h3>
+                            <p>Hyderabad, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-section">
+                        <h3>Connect With Me</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Manikiran546" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://instagram.com/mr_manikiran_" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-details">
+                    <h2>Let's Work Together</h2>
+                    <p>I'm currently looking for new opportunities in data science and software development. Whether you have a project to discuss or just want to say hello, I'd love to hear from you.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Quick Response</h4>
+                        <p>I typically respond to emails within 24 hours. For urgent matters, feel free to call or message me directly.</p>
+                    </div>
+                    
+                    <div class="availability">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Available for freelance projects and full-time opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="bg-animation">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.navbar').classList.remove('active');
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show copied notification
+                const notification = document.createElement('div');
+                notification.textContent = 'Copied to clipboard!';
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = 'var(--primary-color)';
+                notification.style.color = 'white';
+                notification.style.padding = '12px 24px';
+                notification.style.borderRadius = '8px';
+                notification.style.zIndex = '10000';
+                notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                notification.style.fontWeight = '500';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 2000);
+            });
+        }
+
+        // Add animation to contact container on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.contact-container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
