@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manikiran Gutthula | Data Scientist</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     :root {
-      --primary-color: #6c63ff;
-      --secondary-color: #4a44c6;
-      --accent-color: #ff6584;
-      --dark-color: #2a2d3e;
-      --light-color: #f8f9fa;
+      --primary-color: #6C63FF;
+      --secondary-color: #4A44C6;
+      --dark-color: #2A2D3E;
+      --light-color: #F8F9FA;
       --text-color: #333;
-      --text-light: #555;
+      --text-light: #777;
       --transition: all 0.3s ease;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "Poppins", sans-serif;
-      background: var(--light-color);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       color: var(--text-color);
       overflow-x: hidden;
     }
 
+    /* Header */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 1rem 8%;
+      padding: 20px 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
       z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
     }
 
     .logo {
-      font-family: "Montserrat", sans-serif;
-      font-size: 1.8rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
       font-weight: 900;
       color: var(--dark-color);
       text-decoration: none;
@@ -60,104 +63,108 @@
       color: var(--primary-color);
     }
 
-    nav.navbar {
+    .navbar {
       display: flex;
-      gap: 1.8rem;
+      gap: 35px;
     }
 
     .navbar a {
+      font-size: 18px;
       color: var(--dark-color);
       text-decoration: none;
       font-weight: 500;
-      font-size: 1rem;
       position: relative;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-      color: var(--primary-color);
-    }
-
-    .navbar a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      left: 0;
-      bottom: -4px;
-      background: var(--primary-color);
       transition: var(--transition);
     }
 
-    .navbar a:hover::after,
-    .navbar a.active::after {
-      width: 100%;
+    .navbar a:hover, .navbar a.active {
+      color: var(--primary-color);
     }
 
     #menu-icon {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
+      font-size: 28px;
       color: var(--dark-color);
+      cursor: pointer;
+      display: none;
     }
 
-    /* HOME SECTION */
+    /* Home Section */
     .home {
+      min-height: 100vh;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      min-height: 100vh;
-      padding: 6rem 8% 3rem;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      flex-wrap: wrap;
+      padding: 0 10%;
+      background: transparent;
       position: relative;
     }
 
     .home-content {
-      flex: 1 1 500px;
       max-width: 600px;
+      z-index: 2;
     }
 
     .home-content h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: 56px;
       font-weight: 700;
+      margin-bottom: 20px;
       color: var(--dark-color);
-      line-height: 1.3;
-      margin-bottom: 1rem;
     }
 
     .home-content h1 span {
       color: var(--primary-color);
     }
 
+    /* Typing animation */
+    .text-animate {
+      position: relative;
+      width: fit-content;
+      margin-bottom: 25px;
+    }
+
     .text-animate h3 {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      color: var(--secondary-color);
+      font-size: 32px;
       font-weight: 600;
-      margin-bottom: 1rem;
+      color: var(--secondary-color);
+      border-right: 3px solid var(--primary-color);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3.5s steps(15, end) infinite alternate;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     .home-content p {
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
       color: var(--text-light);
-      margin-bottom: 2rem;
     }
 
     .btn-box {
       display: flex;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 1rem;
     }
 
     .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 50px;
       background: var(--primary-color);
       color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
+      font-size: 18px;
       font-weight: 500;
+      border-radius: 8px;
       text-decoration: none;
       transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
     }
 
     .btn:hover {
@@ -165,33 +172,35 @@
       transform: translateY(-3px);
     }
 
-    .btn-outline {
+    .btn:nth-child(2) {
       background: transparent;
       color: var(--primary-color);
       border: 2px solid var(--primary-color);
     }
 
-    .btn-outline:hover {
+    .btn:nth-child(2):hover {
       background: var(--primary-color);
       color: white;
     }
 
     .home-sci {
+      position: absolute;
+      bottom: 40px;
       display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 20px;
     }
 
     .home-sci a {
-      display: flex;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
       width: 40px;
       height: 40px;
-      border-radius: 50%;
       background: var(--primary-color);
       color: white;
-      font-size: 1.1rem;
+      border-radius: 50%;
+      font-size: 20px;
+      text-decoration: none;
       transition: var(--transition);
     }
 
@@ -200,116 +209,43 @@
       transform: translateY(-5px);
     }
 
-    /* Background decorative bubbles */
-    .bg-animation div {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(108, 99, 255, 0.12);
-      animation: float 6s ease-in-out infinite;
+    /* Responsive */
+    @media (max-width: 992px) {
+      header { padding: 20px 5%; }
+      .home { padding: 0 5%; }
+      .home-content h1 { font-size: 42px; }
+      .text-animate h3 { font-size: 28px; }
     }
 
-    .bg-animation div:nth-child(1) {
-      width: 250px;
-      height: 250px;
-      top: 10%;
-      right: 15%;
-      animation-delay: 0s;
-    }
-
-    .bg-animation div:nth-child(2) {
-      width: 120px;
-      height: 120px;
-      top: 50%;
-      right: 10%;
-      animation-delay: 2s;
-    }
-
-    .bg-animation div:nth-child(3) {
-      width: 180px;
-      height: 180px;
-      bottom: 10%;
-      right: 20%;
-      animation-delay: 4s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-15px);
-      }
-    }
-
-    /* MOBILE MENU */
-    @media (max-width: 900px) {
-      header {
-        padding: 1rem 5%;
-      }
-
-      #menu-icon {
-        display: block;
-      }
-
+    @media (max-width: 768px) {
+      #menu-icon { display: block; }
       .navbar {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        flex-direction: column;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 5%;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(10px);
         display: none;
-      }
-
-      .navbar.active {
-        display: flex;
-      }
-
-      .navbar a {
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
-      }
-
-      .home {
         flex-direction: column;
         text-align: center;
-        padding: 7rem 5% 3rem;
       }
-
-      .home-content {
-        max-width: 100%;
-      }
-
-      .home-sci {
-        justify-content: center;
-      }
-
-      .bg-animation {
-        display: none;
-      }
+      .navbar.active { display: flex; }
+      .home-content h1 { font-size: 36px; }
+      .text-animate h3 { font-size: 24px; }
     }
 
-    @media (max-width: 500px) {
-      .btn-box {
-        flex-direction: column;
-        align-items: center;
-      }
-      .btn, .btn-outline {
-        width: 80%;
-        text-align: center;
-      }
-      .home-content p {
-        font-size: 0.95rem;
-      }
+    @media (max-width: 576px) {
+      .home-content h1 { font-size: 32px; }
+      .home-content p { font-size: 16px; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
-
 <body>
   <header>
     <a href="#" class="logo">Mani<span>Kiran.</span></a>
-
     <nav class="navbar">
       <a href="Homepage.html" class="active">Home</a>
       <a href="AboutPage.html">About</a>
@@ -317,41 +253,35 @@
       <a href="Skills.html">Skills</a>
       <a href="Contacts.html">Contact</a>
     </nav>
-
     <div id="menu-icon"><i class="fas fa-bars"></i></div>
   </header>
 
-  <section class="home">
+  <section class="home" id="home">
     <div class="home-content">
       <h1>Hi, I'm <span>Manikiran Gutthula</span></h1>
-      <div class="text-animate"><h3>Data Scientist</h3></div>
-      <p>
-        As a dedicated Computer Science student with a robust foundation in programming, data structures, and algorithms,
-        I am passionate about applying my skills to real-world challenges. With a strong drive to innovate, I am eager to
-        collaborate on impactful projects and contribute meaningfully within a dynamic team.
-      </p>
+      <div class="text-animate">
+        <h3>Data Scientist</h3>
+      </div>
+      <p>As a dedicated Computer Science student with a robust foundation in programming, data structures, and algorithms, I am passionate about applying my skills to real-world challenges and contributing meaningfully to the tech industry.</p>
+
       <div class="btn-box">
         <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Hire Me</a>
-        <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn btn-outline">Let's Talk</a>
-      </div>
-      <div class="home-sci">
-        <a href="https://www.linkedin.com/in/mani-kiran-734240307/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/Manikiran546"><i class="fab fa-github"></i></a>
-        <a href="https://instagram.com/mr_manikiran_"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Let's Talk</a>
       </div>
     </div>
 
-    <div class="bg-animation">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="home-sci">
+      <a href="https://www.linkedin.com/in/mani-kiran-734240307/"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Manikiran546"><i class="fab fa-github"></i></a>
+      <a href="https://instagram.com/mr_manikiran_"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
   <script>
-    const menu = document.getElementById("menu-icon");
-    const navbar = document.querySelector(".navbar");
-    menu.addEventListener("click", () => navbar.classList.toggle("active"));
+    // Mobile menu
+    document.getElementById('menu-icon').addEventListener('click', () => {
+      document.querySelector('.navbar').classList.toggle('active');
+    });
   </script>
 </body>
 </html>
