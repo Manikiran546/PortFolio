@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Manikiran Gutthula | Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -27,12 +27,14 @@
 
         html {
             scroll-behavior: smooth;
+            height: 100%;
         }
 
         body {
             background-color: var(--light-color);
             color: var(--text-color);
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* Header & Navigation */
@@ -41,24 +43,26 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 10%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
+            height: 70px;
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 900;
             color: var(--dark-color);
             text-decoration: none;
             display: flex;
             align-items: center;
+            z-index: 1001;
         }
 
         .logo span {
@@ -67,11 +71,11 @@
 
         .navbar {
             display: flex;
-            gap: 35px;
+            gap: 25px;
         }
 
         .navbar a {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--dark-color);
             text-decoration: none;
             font-weight: 500;
@@ -99,10 +103,11 @@
         }
 
         #menu-icon {
-            font-size: 28px;
+            font-size: 24px;
             color: var(--dark-color);
             cursor: pointer;
             display: none;
+            z-index: 1001;
         }
 
         /* Home Section */
@@ -110,7 +115,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 10%;
+            padding: 90px 5% 30px;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             position: relative;
             overflow: hidden;
@@ -119,10 +124,11 @@
         .home-content {
             max-width: 600px;
             z-index: 2;
+            width: 100%;
         }
 
         .home-content h1 {
-            font-size: 56px;
+            font-size: clamp(32px, 6vw, 56px);
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
@@ -136,38 +142,19 @@
         .text-animate {
             position: relative;
             width: fit-content;
+            margin-bottom: 20px;
+            height: 40px;
+            overflow: hidden;
         }
 
         .text-animate h3 {
-            font-size: 32px;
+            font-size: clamp(20px, 4vw, 32px);
             color: var(--secondary-color);
-            margin-bottom: 20px;
             font-weight: 600;
         }
 
-        .text-animate::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background-color: var(--light-color);
-            border-left: 2px solid var(--primary-color);
-            animation: animate 4s steps(12) infinite;
-        }
-
-        @keyframes animate {
-            40%, 60% {
-                left: 100%;
-            }
-            100% {
-                left: 0%;
-            }
-        }
-
         .home-content p {
-            font-size: 18px;
+            font-size: clamp(16px, 2.5vw, 18px);
             line-height: 1.6;
             margin-bottom: 30px;
             color: var(--text-light);
@@ -176,6 +163,7 @@
         .btn-box {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -186,12 +174,13 @@
             height: 50px;
             background: var(--primary-color);
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
             border-radius: 8px;
             text-decoration: none;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .btn:hover {
@@ -215,7 +204,8 @@
             position: absolute;
             bottom: 40px;
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            z-index: 2;
         }
 
         .home-sci a {
@@ -227,9 +217,10 @@
             background: var(--primary-color);
             color: white;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 18px;
             text-decoration: none;
             transition: var(--transition);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .home-sci a:hover {
@@ -289,26 +280,28 @@
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .home-content h1 {
-                font-size: 48px;
+            header {
+                padding: 15px 4%;
+            }
+            
+            .home {
+                padding: 90px 4% 30px;
             }
         }
 
         @media (max-width: 992px) {
-            header {
-                padding: 20px 5%;
+            .navbar {
+                gap: 20px;
             }
             
-            .home {
-                padding: 0 5%;
+            .navbar a {
+                font-size: 15px;
             }
             
-            .home-content h1 {
-                font-size: 42px;
-            }
-            
-            .text-animate h3 {
-                font-size: 28px;
+            .btn {
+                width: 140px;
+                height: 48px;
+                font-size: 15px;
             }
         }
 
@@ -318,28 +311,78 @@
             }
             
             .navbar {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 1rem 5%;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                padding: 100px 30px 30px;
                 background: white;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                display: none;
                 flex-direction: column;
-                text-align: center;
+                text-align: left;
+                transition: var(--transition);
+                z-index: 1000;
             }
             
             .navbar.active {
+                left: 0;
+            }
+            
+            .navbar a {
+                font-size: 18px;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            .bg-animation {
+                width: 100%;
+                opacity: 0.5;
+            }
+            
+            .home-sci {
+                position: relative;
+                bottom: auto;
+                margin-top: 40px;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .home {
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .home-content {
                 display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
-            .home-content h1 {
-                font-size: 36px;
+            .text-animate {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 12px 4%;
             }
             
-            .text-animate h3 {
-                font-size: 24px;
+            .logo {
+                font-size: 22px;
+            }
+            
+            .home {
+                padding: 80px 4% 20px;
+            }
+            
+            .btn-box {
+                justify-content: center;
+            }
+            
+            .btn {
+                width: 160px;
             }
             
             .bg-animation {
@@ -347,23 +390,43 @@
             }
         }
 
-        @media (max-width: 576px) {
-            .home-content h1 {
-                font-size: 32px;
+        /* iPhone-specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
             }
             
-            .home-content p {
-                font-size: 16px;
+            .home {
+                padding-top: calc(90px + env(safe-area-inset-top));
+                padding-bottom: calc(30px + env(safe-area-inset-bottom));
             }
             
-            .btn-box {
-                flex-direction: column;
-                align-items: flex-start;
+            header {
+                padding-top: calc(15px + env(safe-area-inset-top));
+                height: calc(70px + env(safe-area-inset-top));
             }
             
-            .btn {
-                width: 180px;
+            .navbar {
+                padding-top: calc(100px + env(safe-area-inset-top));
             }
+        }
+
+        /* Animation for text */
+        .typing-text {
+            overflow: hidden;
+            border-right: 2px solid var(--primary-color);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color); }
         }
     </style>
 </head>
@@ -390,7 +453,7 @@
         <div class="home-content">
             <h1>Hi, I'm <span>Manikiran Gutthula</span></h1>
             <div class="text-animate">
-                <h3>Data Scientist</h3>
+                <h3 class="typing-text">Data Scientist</h3>
             </div>
             <p>As a dedicated Computer Science student with a robust foundation in programming, data structures, and algorithms, I am passionate about applying my skills to real-world challenges. With a strong drive to innovate, I am eager to collaborate on impactful projects, leverage cutting-edge technologies, and gain valuable insights from experienced professionals. My goal is to continuously grow, adapt, and contribute meaningfully within a dynamic team, making a lasting impact on the tech industry.</p>
             
@@ -398,12 +461,12 @@
                 <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Hire Me</a>
                 <a href="https://www.linkedin.com/in/mani-kiran-734240307/" class="btn">Let's Talk</a>
             </div>
-        </div>
-        
-        <div class="home-sci">
-            <a href="https://www.linkedin.com/in/mani-kiran-734240307/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/Manikiran546"><i class="fab fa-github"></i></a>
-            <a href="https://instagram.com/mr_manikiran_" class="social-link"><i class="fab fa-instagram"></i></a>
+            
+            <div class="home-sci">
+                <a href="https://www.linkedin.com/in/mani-kiran-734240307/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Manikiran546"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/mr_manikiran_"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
         
         <div class="bg-animation">
@@ -417,12 +480,25 @@
         // Toggle mobile menu
         document.getElementById('menu-icon').addEventListener('click', function() {
             document.querySelector('.navbar').classList.toggle('active');
+            // Toggle menu icon between bars and X
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.navbar a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.navbar').classList.remove('active');
+                // Reset menu icon to bars
+                const icon = document.querySelector('#menu-icon i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
         });
 
@@ -433,27 +509,43 @@
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
         });
 
-        // Text animation
-        const text = document.querySelector('.text-animate h3');
-        const textContent = text.textContent;
-        text.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < textContent.length) {
-                text.textContent += textContent.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
+        // Improved text animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.querySelector('.typing-text');
+            const text = textElement.textContent;
+            textElement.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    textElement.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    // Keep the cursor blinking after typing is complete
+                    textElement.style.animation = 'blink-caret 0.75s step-end infinite';
+                }
             }
-        }
-        
-        // Start animation when page loads
-        window.addEventListener('load', typeWriter);
+            
+            // Start animation after a short delay
+            setTimeout(typeWriter, 500);
+            
+            // Add fade-in animation to home content
+            const homeContent = document.querySelector('.home-content');
+            homeContent.style.opacity = '0';
+            homeContent.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                homeContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                homeContent.style.opacity = '1';
+                homeContent.style.transform = 'translateY(0)';
+            }, 300);
+        });
     </script>
 </body>
 </html>
